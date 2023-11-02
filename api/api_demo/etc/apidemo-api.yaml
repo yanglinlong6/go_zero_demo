@@ -6,3 +6,7 @@ Port: 8888
 DemoRpcConf:
   Endpoints:
     - 127.0.0.1:8080
+
+MySQL:
+  #本地数据库
+  DataSource: root:986203@tcp(112.74.125.238:3306)/neshield?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai

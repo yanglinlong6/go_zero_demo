@@ -7,3 +7,7 @@ ListenOn: 0.0.0.0:8080
 
 Mode:
   dev
+
+MySQL:
+  #本地数据库
+  DataSource: root:986203@tcp(112.74.125.238:3306)/neshield?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai

@@ -2,6 +2,8 @@ package logic
 
 import (
 	"context"
+	"database/sql"
+	"rpc_demo/sqlc/usermodel"
 
 	"rpc_demo/internal/svc"
 	"rpc_demo/rpc_demo"
@@ -25,6 +27,11 @@ func NewPingLogic(ctx context.Context, svcCtx *svc.ServiceContext) *PingLogic {
 
 func (l *PingLogic) Ping(in *rpc_demo.Request) (*rpc_demo.Response, error) {
 	// todo: add your logic here and delete this line
-
-	return &rpc_demo.Response{Pong: "Pong" + in.Ping}, nil
+	yangParam := &usermodel.TUserYang{}
+	yangParam.Username = sql.NullString{String: "text", Valid: true}
+	yangParam.Password = sql.NullString{String: "dfsadsafdsf", Valid: true}
+	insert, _ := l.svcCtx.UsersModel.Insert(l.ctx, yangParam)
+	affected, _ := insert.RowsAffected()
+	l.Logger.Info(affected)
+	return &rpc_demo.Response{Pong: "Pong" + in.Ping + ";"}, nil
 }
