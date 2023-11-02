@@ -19,6 +19,7 @@ import (
 var configFile = flag.String("f", "etc/rpcdemo.yaml", "the config file")
 
 func main() {
+	//grpcui -plaintext 127.0.0.1:8080
 	flag.Parse()
 
 	var c config.Config
