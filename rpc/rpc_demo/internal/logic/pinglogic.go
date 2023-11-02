@@ -30,6 +30,7 @@ func (l *PingLogic) Ping(in *rpc_demo.Request) (*rpc_demo.Response, error) {
 	yangParam := &usermodel.TUserYang{}
 	yangParam.Username = sql.NullString{String: "text", Valid: true}
 	yangParam.Password = sql.NullString{String: "dfsadsafdsf", Valid: true}
+	yangParam.Remark = sql.NullString{String: "Remark", Valid: true}
 	insert, _ := l.svcCtx.UsersModel.Insert(l.ctx, yangParam)
 	affected, _ := insert.RowsAffected()
 	l.Logger.Info(affected)

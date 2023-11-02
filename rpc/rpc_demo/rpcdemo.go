@@ -19,7 +19,8 @@ import (
 var configFile = flag.String("f", "etc/rpcdemo.yaml", "the config file")
 
 func main() {
-	//grpcui -plaintext 127.0.0.1:8080
+	// grpcui -plaintext 127.0.0.1:8080
+	// goctl model mysql datasource -url="root:986203@tcp(112.74.125.238:3306)/neshield" -table="t_user_yang" -dir="./rpc/rpc_demo/sqlc/usermodel"
 	flag.Parse()
 
 	var c config.Config
