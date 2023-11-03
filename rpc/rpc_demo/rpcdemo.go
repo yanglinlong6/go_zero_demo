@@ -21,6 +21,8 @@ var configFile = flag.String("f", "etc/rpcdemo.yaml", "the config file")
 func main() {
 	// grpcui -plaintext 127.0.0.1:8080
 	// goctl model mysql datasource -url="root:986203@tcp(112.74.125.238:3306)/neshield" -table="t_user_yang" -dir="./rpc/rpc_demo/sqlc/usermodel"
+	// go install github.com/Mikaelemmmm/sql2pb@latest
+	// sql2pb -go_package ./pb -host 112.74.125.238 -package pb -password 986203 -port 3306 -schema neshield -service_name neshieldsrv -user root > neshieldsrv.proto
 	flag.Parse()
 
 	var c config.Config
