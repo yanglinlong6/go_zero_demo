@@ -1,15 +1,13 @@
 package logic
 
 import (
-	"context"
-	"database/sql"
-	"rpc_demo/sqlc/usermodel"
-
 	"api_demo/internal/svc"
 	"api_demo/internal/types"
-
+	"context"
+	"database/sql"
 	"github.com/zeromicro/go-zero/core/logx"
 	pb "rpc_demo/rpc_demo"
+	"rpc_demo/sqlc/usermodel"
 )
 
 type Api_demoLogic struct {
@@ -36,5 +34,7 @@ func (l *Api_demoLogic) Api_demo(req *types.Request) (resp *types.Response, err 
 	insert, _ := l.svcCtx.UsersModel.Insert(l.ctx, yangParam)
 	affected, _ := insert.RowsAffected()
 	l.Logger.Info(affected)
-	return &types.Response{"请求成功" + demoResp.Pong}, nil
+	name := req.Name
+	age := req.Age
+	return &types.Response{"请求成功" + demoResp.Pong + name + age}, nil
 }

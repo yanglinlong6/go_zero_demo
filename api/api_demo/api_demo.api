@@ -1,12 +1,13 @@
 type Request {
-    Name string `path:"name,options=you|me"`
+	Name string `path:"name,options=you|me"`
+	Age string `path:"age,options=20|30"`
 }
 
 type Response {
-    Message string `json:"message"`
+	Message string `json:"message"`
 }
 
 service api_demo-api {
-    @handler Api_demoHandler
-    get /from/:name (Request) returns (Response)
+	@handler Api_demoHandler
+	get /from/:name/:age (Request) returns (Response)
 }

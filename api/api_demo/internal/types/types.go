@@ -3,6 +3,7 @@ package types
 
 type Request struct {
 	Name string `path:"name,options=you|me"`
+	Age  string `path:"age,options=20|30"`
 }
 
 type Response struct {
